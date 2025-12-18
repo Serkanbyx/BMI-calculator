@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A modern, user-friendly BMI Calculator with history tracking."
+    />
+    <meta name="theme-color" content="#252525" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>BMI Calculator</h1>
+        <p>Calculate your Body Mass Index efficiently.</p>
+      </header>
+
+      <section class="calculator-card">
+        <div
+          class="unit-toggle-container"
+          role="radiogroup"
+          aria-label="Unit System"
+        >
+          <button
+            type="button"
+            class="unit-btn active"
+            id="metricBtn"
+            data-unit="metric"
+          >
+            Metric
+            <span class="unit-sub">kg / cm</span>
+          </button>
+          <button
+            type="button"
+            class="unit-btn"
+            id="imperialBtn"
+            data-unit="imperial"
+          >
+            Imperial
+            <span class="unit-sub">lbs / in</span>
+          </button>
+        </div>
+
+        <form id="bmiForm" novalidate>
+          <div class="input-group">
+            <label for="height"
+              >Height
+              <span class="unit-label" id="heightUnitLabel">(cm)</span></label
+            >
+            <input
+              type="number"
+              id="height"
+              placeholder="Enter height"
+              min="50"
+              max="250"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="weight"
+              >Weight
+              <span class="unit-label" id="weightUnitLabel">(kg)</span></label
+            >
+            <input
+              type="number"
+              id="weight"
+              placeholder="Enter weight"
+              min="1"
+              required
+            />
+          </div>
+
+          <button type="submit" id="calculateBtn">Calculate BMI</button>
+        </form>
+
+        <div
+          id="resultContainer"
+          class="result-container hidden"
+          aria-live="polite"
+        >
+          <div class="score">
+            <span id="bmiValue">0.0</span>
+            <span id="bmiCategory">Unknown</span>
+          </div>
+          <div class="ideal-weight">
+            Ideal Weight: <span id="idealWeightRange">--</span>
+          </div>
+          <div class="visualization">
+            <div class="bar-container">
+              <div class="indicator" id="bmiIndicator"></div>
+              <div class="bar-gradient"></div>
+            </div>
+            <div class="labels">
+              <span>Underweight</span>
+              <span>Normal</span>
+              <span>Overweight</span>
+              <span>Obese</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="historySection" class="history-section hidden">
+        <h2>Last Measurement</h2>
+        <div id="lastMeasurement" class="history-item"></div>
+      </section>
+    </main>
+
+    <div
+      id="modalOverlay"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalMessage"
+    >
+      <div class="modal-content">
+        <div class="modal-icon" id="modalIcon"></div>
+        <p id="modalMessage"></p>
+        <button type="button" id="modalCloseBtn" class="modal-close-btn">
+          OK
+        </button>
+      </div>
+    </div>
+
+    <footer class="sign">
+      Created by
+      <a
+        href="https://serkanbayraktar.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Serkanby</a
+      >
+      |
+      <a
+        href="https://github.com/Serkanbyx"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Github</a
+      >
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then((reg) => console.log("Service Worker registered"))
+          .catch((err) => console.log("Service Worker error", err));
+      }
+    </script>
+  </body>
+</html>
