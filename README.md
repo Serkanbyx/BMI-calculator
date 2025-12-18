@@ -1,4 +1,4 @@
-# ⚖️ BMI Calculator
+# ⚖️ BMI Calculator 
 
 A modern, responsive Body Mass Index calculator with unit toggle, dynamic color-coded results, ideal weight range display, and visual BMI indicator. Built with Glassmorphism design and PWA support for offline usage.
 
