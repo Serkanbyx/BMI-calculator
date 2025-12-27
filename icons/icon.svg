@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#252525"/>
+      <stop offset="100%" style="stop-color:#414141"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#af0404"/>
+      <stop offset="100%" style="stop-color:#ff0000"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#bgGrad)"/>
+  
+  <!-- Scale Base -->
+  <ellipse cx="256" cy="380" rx="140" ry="30" fill="#555"/>
+  <ellipse cx="256" cy="375" rx="130" ry="25" fill="#666"/>
+  
+  <!-- Scale Body -->
+  <rect x="136" y="200" width="240" height="180" rx="20" fill="#414141"/>
+  <rect x="146" y="210" width="220" height="100" rx="15" fill="#252525"/>
+  
+  <!-- BMI Gauge -->
+  <path d="M 170 280 A 86 86 0 0 1 342 280" fill="none" stroke="#3498db" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 213 243 A 86 86 0 0 1 299 243" fill="none" stroke="#4caf50" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 299 243 A 86 86 0 0 1 342 280" fill="none" stroke="#ff9800" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 342 280 A 86 86 0 0 1 342 285" fill="none" stroke="#f44336" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Needle -->
+  <line x1="256" y1="280" x2="290" y2="250" stroke="url(#accentGrad)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="256" cy="280" r="12" fill="#fff"/>
+  <circle cx="256" cy="280" r="6" fill="url(#accentGrad)"/>
+  
+  <!-- Display Text -->
+  <text x="256" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#fff">BMI</text>
+  
+  <!-- Human Icon -->
+  <circle cx="256" cy="100" r="35" fill="url(#accentGrad)"/>
+  <path d="M 256 140 L 256 200 M 220 160 L 292 160 M 230 200 L 256 170 L 282 200" stroke="url(#accentGrad)" stroke-width="12" stroke-linecap="round" fill="none"/>
+</svg>
+
